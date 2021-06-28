@@ -30,14 +30,6 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author Milica
  */
 @Entity
-@Table(name = "fakultet")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Fakultet.findAll", query = "SELECT f FROM Fakultet f")
-    , @NamedQuery(name = "Fakultet.findByFakultetId", query = "SELECT f FROM Fakultet f WHERE f.fakultetId = :fakultetId")
-    , @NamedQuery(name = "Fakultet.findByNaziv", query = "SELECT f FROM Fakultet f WHERE f.naziv = :naziv")
-    , @NamedQuery(name = "Fakultet.findByAdresa", query = "SELECT f FROM Fakultet f WHERE f.adresa = :adresa")
-    , @NamedQuery(name = "Fakultet.findByGodinaOsnivanja", query = "SELECT f FROM Fakultet f WHERE f.godinaOsnivanja = :godinaOsnivanja")})
 public class Fakultet implements Serializable {
 
     private static final long serialVersionUID = 1L;

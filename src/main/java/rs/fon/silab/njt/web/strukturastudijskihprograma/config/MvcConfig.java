@@ -19,7 +19,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 /**
  *
- * @author korisnik 
+ * @author korisnik
  */
 @Configuration
 @ComponentScan(basePackages = {
@@ -27,5 +27,4 @@ import org.springframework.web.servlet.view.JstlView;
 })
 @EnableWebMvc
 public class MvcConfig {
-
 }

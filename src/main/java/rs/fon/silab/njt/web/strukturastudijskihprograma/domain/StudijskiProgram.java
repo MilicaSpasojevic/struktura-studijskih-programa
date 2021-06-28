@@ -31,14 +31,6 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 
 @Entity
-@Table(name = "studijskiprogram")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Studijskiprogram.findAll", query = "SELECT s FROM Studijskiprogram s")
-    , @NamedQuery(name = "Studijskiprogram.findByStudijskiProgramId", query = "SELECT s FROM Studijskiprogram s WHERE s.studijskiProgramId = :studijskiProgramId")
-    , @NamedQuery(name = "Studijskiprogram.findByNaziv", query = "SELECT s FROM Studijskiprogram s WHERE s.naziv = :naziv")
-    , @NamedQuery(name = "Studijskiprogram.findByBrojSemestara", query = "SELECT s FROM Studijskiprogram s WHERE s.brojSemestara = :brojSemestara")
-    , @NamedQuery(name = "Studijskiprogram.findByStatus", query = "SELECT s FROM Studijskiprogram s WHERE s.status = :status")})
 public class StudijskiProgram implements Serializable {
 
     private static final long serialVersionUID = 1L;

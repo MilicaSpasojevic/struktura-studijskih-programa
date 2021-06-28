@@ -10,6 +10,7 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -25,6 +26,12 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  *
  * @author STEFAN PC
  */
+@Configuration
+@ComponentScan(basePackages = {
+    "rs.fon.silab.njt.web.strukturastudijskihprograma.service",
+    "rs.fon.silab.njt.web.strukturastudijskihprograma.mapper",
+    "rs.fon.silab.njt.web.strukturastudijskihprograma.dao"
+})
 @PropertySource("classpath:db.config")
 @EnableTransactionManagement
 public class RootAppConfig {
@@ -49,7 +56,7 @@ public class RootAppConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource){
         LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
         emf.setDataSource(dataSource);
-        emf.setPackagesToScan(new String[]{"rs.fon.silab.application.strukturastudijskihprograma.domain"});
+        emf.setPackagesToScan(new String[]{"rs.fon.silab.njt.web.strukturastudijskihprograma.domain"});
         JpaVendorAdapter hibernate = new HibernateJpaVendorAdapter();
         emf.setJpaVendorAdapter(hibernate);
         return emf;

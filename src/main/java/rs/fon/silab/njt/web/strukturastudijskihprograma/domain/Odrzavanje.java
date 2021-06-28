@@ -23,13 +23,6 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Milica
  */
 @Entity
-@Table(name = "odrzavanje")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Odrzavanje.findAll", query = "SELECT o FROM Odrzavanje o")
-    , @NamedQuery(name = "Odrzavanje.findByPredmetId", query = "SELECT o FROM Odrzavanje o WHERE o.odrzavanjePK.predmetId = :predmetId")
-    , @NamedQuery(name = "Odrzavanje.findByModulId", query = "SELECT o FROM Odrzavanje o WHERE o.odrzavanjePK.modulId = :modulId")
-    , @NamedQuery(name = "Odrzavanje.findBySemestar", query = "SELECT o FROM Odrzavanje o WHERE o.semestar = :semestar")})
 public class Odrzavanje implements Serializable {
 
     private static final long serialVersionUID = 1L;

@@ -28,12 +28,6 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author Milica
  */
 @Entity
-@Table(name = "grupapredmeta")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Grupapredmeta.findAll", query = "SELECT g FROM Grupapredmeta g")
-    , @NamedQuery(name = "Grupapredmeta.findByGrupaId", query = "SELECT g FROM Grupapredmeta g WHERE g.grupaId = :grupaId")
-    , @NamedQuery(name = "Grupapredmeta.findByNaziv", query = "SELECT g FROM Grupapredmeta g WHERE g.naziv = :naziv")})
 public class GrupaPredmeta implements Serializable {
 
     private static final long serialVersionUID = 1L;

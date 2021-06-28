@@ -29,13 +29,6 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author Milica
  */
 @javax.persistence.Entity
-@Table(name = "predmet")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Predmet.findAll", query = "SELECT p FROM Predmet p")
-    , @NamedQuery(name = "Predmet.findByPredmetid", query = "SELECT p FROM Predmet p WHERE p.predmetid = :predmetid")
-    , @NamedQuery(name = "Predmet.findByEspb", query = "SELECT p FROM Predmet p WHERE p.espb = :espb")
-    , @NamedQuery(name = "Predmet.findByNaziv", query = "SELECT p FROM Predmet p WHERE p.naziv = :naziv")})
 public class Predmet implements Entity {
 
     private static final long serialVersionUID = 1L;

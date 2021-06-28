@@ -5,6 +5,7 @@
  */
 package rs.fon.silab.njt.web.strukturastudijskihprograma.mapper.impl;
 
+import org.springframework.stereotype.Component;
 import rs.fon.silab.njt.web.strukturastudijskihprograma.domain.Entity;
 import rs.fon.silab.njt.web.strukturastudijskihprograma.domain.Predmet;
 import rs.fon.silab.njt.web.strukturastudijskihprograma.dto.PredmetDto;
@@ -14,6 +15,7 @@ import rs.fon.silab.njt.web.strukturastudijskihprograma.mapper.EntityDtoMapper;
  *
  * @author Milica
  */
+@Component
 public class PredmetMapper implements EntityDtoMapper<PredmetDto, Predmet>{
 
     @Override

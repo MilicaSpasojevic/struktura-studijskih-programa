@@ -30,14 +30,6 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author Milica
  */
 @Entity
-@Table(name = "modul")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Modul.findAll", query = "SELECT m FROM Modul m")
-    , @NamedQuery(name = "Modul.findByModulId", query = "SELECT m FROM Modul m WHERE m.modulId = :modulId")
-    , @NamedQuery(name = "Modul.findByNaziv", query = "SELECT m FROM Modul m WHERE m.naziv = :naziv")
-    , @NamedQuery(name = "Modul.findByPocetak", query = "SELECT m FROM Modul m WHERE m.pocetak = :pocetak")
-    , @NamedQuery(name = "Modul.findByKraj", query = "SELECT m FROM Modul m WHERE m.kraj = :kraj")})
 public class Modul implements Serializable {
 
     private static final long serialVersionUID = 1L;

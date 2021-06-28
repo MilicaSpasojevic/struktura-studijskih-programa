@@ -16,8 +16,8 @@ import rs.fon.silab.njt.web.strukturastudijskihprograma.domain.Predmet;
  *
  * @author Milica
  */
-@Repository
-public class PredmetDaoSpringJPAImpl implements Dao<Predmet>{
+@Repository(value = "predmetDaoSpringJPA")
+public class PredmetDaoSpringJPAImpl implements Dao<Predmet>{   
     @PersistenceContext
     private EntityManager entityManager;
     
@@ -28,7 +28,8 @@ public class PredmetDaoSpringJPAImpl implements Dao<Predmet>{
 
     @Override
     public List<Predmet> getAll() throws Exception {
-        return entityManager.createQuery("SELECT p FROM predmet p", Predmet.class).getResultList();
+        return entityManager.createQuery("SELECT p FROM Predmet p ORDER BY p.naziv", Predmet.class).getResultList();
+        //return null;
     }
     
 }

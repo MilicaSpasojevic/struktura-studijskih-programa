@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import rs.fon.silab.njt.web.strukturastudijskihprograma.dao.Dao;
 import rs.fon.silab.njt.web.strukturastudijskihprograma.domain.Predmet;
@@ -27,7 +28,7 @@ public class PredmetServiceImpl implements PredmetService{
     private final PredmetMapper predmetMapper;
 
     @Autowired
-    public PredmetServiceImpl(Dao<Predmet> predmetDao, PredmetMapper predmetMapper) {
+    public PredmetServiceImpl(@Qualifier(value = "predmetDaoSpringJPA") Dao<Predmet> predmetDao, PredmetMapper predmetMapper) {
         this.predmetDao = predmetDao;
         this.predmetMapper = predmetMapper;
     }
@@ -40,7 +41,6 @@ public class PredmetServiceImpl implements PredmetService{
     @Override
     public List<PredmetDto> getAll() throws Exception {
         List<Predmet> predmeti = predmetDao.getAll();
-        
         return predmeti.stream().map(predmet -> {
             return predmetMapper.toDto(predmet);
         }).collect(Collectors.toList());
