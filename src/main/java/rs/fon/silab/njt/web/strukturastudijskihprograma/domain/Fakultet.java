@@ -10,7 +10,6 @@ import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,8 +28,8 @@ import javax.xml.bind.annotation.XmlTransient;
  *
  * @author Milica
  */
-@Entity
-public class Fakultet implements Serializable {
+@javax.persistence.Entity
+public class Fakultet implements Entity{
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -53,7 +52,7 @@ public class Fakultet implements Serializable {
     @ManyToOne(optional = false)
     private Univerzitet univerzitetId;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "fakultetid")
-    private Collection<StudijskiProgram> studijskiprogramCollection;
+    private Collection<Studijskiprogram> studijskiprogramCollection;
 
     public Fakultet() {
     }
@@ -108,11 +107,11 @@ public class Fakultet implements Serializable {
     }
 
     @XmlTransient
-    public Collection<StudijskiProgram> getStudijskiprogramCollection() {
+    public Collection<Studijskiprogram> getStudijskiprogramCollection() {
         return studijskiprogramCollection;
     }
 
-    public void setStudijskiprogramCollection(Collection<StudijskiProgram> studijskiprogramCollection) {
+    public void setStudijskiprogramCollection(Collection<Studijskiprogram> studijskiprogramCollection) {
         this.studijskiprogramCollection = studijskiprogramCollection;
     }
 

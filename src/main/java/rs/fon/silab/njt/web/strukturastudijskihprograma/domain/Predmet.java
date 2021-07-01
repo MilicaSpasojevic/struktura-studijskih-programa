@@ -11,10 +11,11 @@ import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
-
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -29,7 +30,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author Milica
  */
 @javax.persistence.Entity
-public class Predmet implements Entity {
+public class Predmet implements Entity{
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -46,6 +47,9 @@ public class Predmet implements Entity {
     @Size(min = 1, max = 100)
     @Column(name = "naziv")
     private String naziv;
+    @JoinColumn(name = "tipPredmetaId", referencedColumnName = "tipPredmetaID")
+    @ManyToOne
+    private Tippredmeta tipPredmetaId;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "predmet")
     private Collection<Odrzavanje> odrzavanjeCollection;
 
@@ -86,6 +90,14 @@ public class Predmet implements Entity {
         this.naziv = naziv;
     }
 
+    public Tippredmeta getTipPredmetaId() {
+        return tipPredmetaId;
+    }
+
+    public void setTipPredmetaId(Tippredmeta tipPredmetaId) {
+        this.tipPredmetaId = tipPredmetaId;
+    }
+
     @XmlTransient
     public Collection<Odrzavanje> getOdrzavanjeCollection() {
         return odrzavanjeCollection;
@@ -119,8 +131,6 @@ public class Predmet implements Entity {
     public String toString() {
         return "rs.fon.silab.njt.web.strukturastudijskihprograma.domain.Predmet[ predmetid=" + predmetid + " ]";
     }
-
-  
 
     
     

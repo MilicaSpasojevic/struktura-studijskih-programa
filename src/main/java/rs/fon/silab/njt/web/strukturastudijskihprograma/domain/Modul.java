@@ -10,7 +10,6 @@ import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,8 +28,8 @@ import javax.xml.bind.annotation.XmlTransient;
  *
  * @author Milica
  */
-@Entity
-public class Modul implements Serializable {
+@javax.persistence.Entity
+public class Modul implements Entity {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -53,7 +52,7 @@ public class Modul implements Serializable {
     private int kraj;
     @JoinColumn(name = "studijskiProgramId", referencedColumnName = "studijskiProgramId")
     @ManyToOne(optional = false)
-    private StudijskiProgram studijskiProgramId;
+    private Studijskiprogram studijskiProgramId;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "modul")
     private Collection<Odrzavanje> odrzavanjeCollection;
 
@@ -103,11 +102,11 @@ public class Modul implements Serializable {
         this.kraj = kraj;
     }
 
-    public StudijskiProgram getStudijskiProgramId() {
+    public Studijskiprogram getStudijskiProgramId() {
         return studijskiProgramId;
     }
 
-    public void setStudijskiProgramId(StudijskiProgram studijskiProgramId) {
+    public void setStudijskiProgramId(Studijskiprogram studijskiProgramId) {
         this.studijskiProgramId = studijskiProgramId;
     }
 

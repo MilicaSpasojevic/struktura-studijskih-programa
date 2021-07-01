@@ -10,6 +10,11 @@
     <class>rs.fon.silab.njt.web.strukturastudijskihprograma.domain.GrupaPredmeta</class>
     <class>rs.fon.silab.njt.web.strukturastudijskihprograma.domain.NivoStudija</class>
     <class>rs.fon.silab.njt.web.strukturastudijskihprograma.domain.StudijskiProgram</class>
+    <class>rs.fon.silab.njt.web.strukturastudijskihprograma.domain.Tippredmeta</class>
+    <class>rs.fon.silab.njt.web.strukturastudijskihprograma.domain.Studijskiprogram</class>
+    <class>rs.fon.silab.njt.web.strukturastudijskihprograma.domain.Pozicija</class>
+    <class>rs.fon.silab.njt.web.strukturastudijskihprograma.domain.Grupapredmeta</class>
+    <class>rs.fon.silab.njt.web.strukturastudijskihprograma.domain.Nivostudija</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/studijski-programi"/>

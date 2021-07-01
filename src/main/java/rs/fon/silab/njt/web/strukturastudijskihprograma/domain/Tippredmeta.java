@@ -10,7 +10,6 @@ import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,41 +26,43 @@ import javax.xml.bind.annotation.XmlTransient;
  *
  * @author Milica
  */
-@Entity
-public class NivoStudija implements Serializable {
+@javax.persistence.Entity
+public class Tippredmeta implements Entity {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "nivoStudijaId")
-    private Long nivoStudijaId;
+    @Column(name = "tipPredmetaID")
+    private Long tipPredmetaID;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 100)
     @Column(name = "naziv")
     private String naziv;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "nivostudijaid")
-    private Collection<StudijskiProgram> studijskiprogramCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tipPredmetaId")
+    private Collection<Pozicija> pozicijaCollection;
+    @OneToMany(mappedBy = "tipPredmetaId")
+    private Collection<Predmet> predmetCollection;
 
-    public NivoStudija() {
+    public Tippredmeta() {
     }
 
-    public NivoStudija(Long nivoStudijaId) {
-        this.nivoStudijaId = nivoStudijaId;
+    public Tippredmeta(Long tipPredmetaID) {
+        this.tipPredmetaID = tipPredmetaID;
     }
 
-    public NivoStudija(Long nivoStudijaId, String naziv) {
-        this.nivoStudijaId = nivoStudijaId;
+    public Tippredmeta(Long tipPredmetaID, String naziv) {
+        this.tipPredmetaID = tipPredmetaID;
         this.naziv = naziv;
     }
 
-    public Long getNivoStudijaId() {
-        return nivoStudijaId;
+    public Long getTipPredmetaID() {
+        return tipPredmetaID;
     }
 
-    public void setNivoStudijaId(Long nivoStudijaId) {
-        this.nivoStudijaId = nivoStudijaId;
+    public void setTipPredmetaID(Long tipPredmetaID) {
+        this.tipPredmetaID = tipPredmetaID;
     }
 
     public String getNaziv() {
@@ -73,29 +74,38 @@ public class NivoStudija implements Serializable {
     }
 
     @XmlTransient
-    public Collection<StudijskiProgram> getStudijskiprogramCollection() {
-        return studijskiprogramCollection;
+    public Collection<Pozicija> getPozicijaCollection() {
+        return pozicijaCollection;
     }
 
-    public void setStudijskiprogramCollection(Collection<StudijskiProgram> studijskiprogramCollection) {
-        this.studijskiprogramCollection = studijskiprogramCollection;
+    public void setPozicijaCollection(Collection<Pozicija> pozicijaCollection) {
+        this.pozicijaCollection = pozicijaCollection;
+    }
+
+    @XmlTransient
+    public Collection<Predmet> getPredmetCollection() {
+        return predmetCollection;
+    }
+
+    public void setPredmetCollection(Collection<Predmet> predmetCollection) {
+        this.predmetCollection = predmetCollection;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (nivoStudijaId != null ? nivoStudijaId.hashCode() : 0);
+        hash += (tipPredmetaID != null ? tipPredmetaID.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof NivoStudija)) {
+        if (!(object instanceof Tippredmeta)) {
             return false;
         }
-        NivoStudija other = (NivoStudija) object;
-        if ((this.nivoStudijaId == null && other.nivoStudijaId != null) || (this.nivoStudijaId != null && !this.nivoStudijaId.equals(other.nivoStudijaId))) {
+        Tippredmeta other = (Tippredmeta) object;
+        if ((this.tipPredmetaID == null && other.tipPredmetaID != null) || (this.tipPredmetaID != null && !this.tipPredmetaID.equals(other.tipPredmetaID))) {
             return false;
         }
         return true;
@@ -103,7 +113,7 @@ public class NivoStudija implements Serializable {
 
     @Override
     public String toString() {
-        return "rs.fon.silab.njt.web.strukturastudijskihprograma.domain.Nivostudija[ nivoStudijaId=" + nivoStudijaId + " ]";
+        return "rs.fon.silab.njt.web.strukturastudijskihprograma.domain.Tippredmeta[ tipPredmetaID=" + tipPredmetaID + " ]";
     }
     
 }

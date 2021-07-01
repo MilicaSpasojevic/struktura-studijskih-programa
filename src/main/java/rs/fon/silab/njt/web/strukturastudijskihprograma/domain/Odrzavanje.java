@@ -9,7 +9,6 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -22,8 +21,8 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  * @author Milica
  */
-@Entity
-public class Odrzavanje implements Serializable {
+@javax.persistence.Entity
+public class Odrzavanje implements Entity {
 
     private static final long serialVersionUID = 1L;
     @EmbeddedId
@@ -34,7 +33,7 @@ public class Odrzavanje implements Serializable {
     private int semestar;
     @JoinColumn(name = "grupaId", referencedColumnName = "grupaId")
     @ManyToOne(optional = false)
-    private GrupaPredmeta grupaId;
+    private Grupapredmeta grupaId;
     @JoinColumn(name = "modulId", referencedColumnName = "modulId", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Modul modul;
@@ -74,11 +73,11 @@ public class Odrzavanje implements Serializable {
         this.semestar = semestar;
     }
 
-    public GrupaPredmeta getGrupaId() {
+    public Grupapredmeta getGrupaId() {
         return grupaId;
     }
 
-    public void setGrupaId(GrupaPredmeta grupaId) {
+    public void setGrupaId(Grupapredmeta grupaId) {
         this.grupaId = grupaId;
     }
 
